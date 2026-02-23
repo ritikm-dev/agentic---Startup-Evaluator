@@ -14,25 +14,47 @@ function Team() {
       <div className='form'>
         <form className='form-apply'>
           <div className='name-head'>
-            <label style={{ fontSize: 30, fontWeight: 'bolder', marginRight: 10 }}>NAME : </label>
-            <input style={{ fontSize: 30, fontWeight: "bold" }} type='text' placeholder='enter your name' className='name-input' required />
+            <label >Name: </label>
+            <input  type='text' placeholder='enter your name' className='name-input' required />
+          </div>
+            <div className='name-head'>
+            <label > Team Size: </label>
+            <div className='role-group'>
+            <label>
+            <input  type='radio' name='team_size' value='2'required />2
+            </label>
+            <label>
+            <input  type='radio' name='team_size' value='3'required />3
+            </label>
+          </div>
+          </div>
+             <div className='name-head'>
+            <label > Role: </label>
+            <div className='role-group'>
+            <label>
+            <input  type='radio' name='role' value='Founder'required />Founder
+            </label>
+            <label>
+            <input  type='radio' name='role' value='Co-Founder'required />Co-Founder
+            </label>
+            <label>
+            <input  type='radio' name='role' value='CEO'required />CEO
+            </label>
+          </div>
+          </div>
+           <div className='name-head'>
+            <label > Team Name: </label>
+            <input type='text' placeholder='enter your name' className='name-input' required />
           </div>
           <div className='name-head'>
-            <label style={{ fontSize: 30, fontWeight: 'bolder', marginRight: 10 }}> Department: </label>
-            <input style={{ fontSize: 30, fontWeight: "bold" }} type='text' placeholder='enter your name' className='name-input' required />
+            <label > Department: </label>
+            <input type='text' placeholder='enter your name' className='name-input' required />
           </div>
           <div className='name-head'>
-            <label style={{ fontSize: 30, fontWeight: 'bolder', marginRight: 10 }}> One line idea: </label>
-            <input style={{ fontSize: 30, fontWeight: "bold" }} type='text' placeholder='enter your name' className='name-input' required />
+            <label > One line idea: </label>
+            <input  type='text' placeholder='enter your name' className='name-input' required />
           </div>
-          <div className='name-head'>
-            <label style={{ fontSize: 30, fontWeight: 'bolder', marginRight: 10 }}> Problem Statement: </label>
-            <input style={{ fontSize: 30, fontWeight: "bold" }} type='text' placeholder='enter your name' className='name-input' required />
-          </div>
-          <div className='name-head'>
-            <label style={{ fontSize: 30, fontWeight: 'bolder', marginRight: 10 }}> Proposed Solution: </label>
-            <input style={{ fontSize: 30, fontWeight: "bold" }} type='text' placeholder='enter your name' className='name-input' required />
-          </div>
+         
         </form>
       </div>
     </>
