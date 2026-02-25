@@ -70,7 +70,7 @@ function CountdownLoader({ seconds, total }) {
   );
 }
 
-function App() {
+function Question() {
   const [qIndex, setQIndex] = useState(0);
   const [selected, setSelected] = useState("");
   const [timeLeft, setTimeLeft] = useState(INTERVAL);
@@ -148,4 +148,4 @@ function App() {
   );
 }
 
-export default App;
+export default Question;
