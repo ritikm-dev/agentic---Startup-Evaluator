@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from schema_back import Singleform,Message,Teamform
 
 app = FastAPI()
 
-# CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -12,11 +12,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Request body model
-class Message(BaseModel):
-    message: str
 
 @app.post("/")
 def disp(data: Message):
     print(data.message)
     return {"message": data.message}
+
+@app.post("/singleform")
+def singleform(message : Singleform):
+    print(message)
+    return {"message" : "done!!"}
+
+@app.post("/teamform")
+def singleform(message : Teamform):
+    print(message)
+    return {"message" : "done!!"}
+
+    

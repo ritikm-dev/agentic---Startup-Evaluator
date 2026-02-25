@@ -17,7 +17,7 @@ function Single() {
       "one_line_idea" : idea
     }
     const response = await fetch(
-      url,
+      "http://localhost:8000/singleform/",
       {
         method :"POST",
         headers : {"Content-Type":"application/json"},
@@ -29,6 +29,8 @@ function Single() {
         throw new Error("Failed TO Fetch Data");        
      }
      else{
+            const data = response.json()
+            console.log(data)
             Navigate("/problem")
             console.log(name,idea,Department)
      }
