@@ -5,17 +5,38 @@ import { Navigate, useNavigate } from 'react-router-dom'
 
 function Team() {
   const Navigate = useNavigate();
-  const handle_button = (e) =>{
-    e.preventDefault();
-    Navigate("/problem")
-
-  }
   const [team_size , Setteam_size] = useState(0)
   const [Department, Set_department] = useState("")
   const [team_name, Set_teamName] = useState("")
   const [idea, Set_idea] = useState("")
   const [role,Set_role] = useState("")
   
+  const handle_button = async (e) =>{
+    e.preventDefault();
+    const data_send = {
+      "department" : Department,
+      "team_size" : team_size,
+      "one_line_idea" : idea,
+      "role" : role,
+      "team_name" : team_name
+    }
+    const response = await fetch(
+      url,
+      {
+        method :"POST",
+        headers : {"Content-Type":"application/json"},
+        body : JSON.stringify(data_send)
+      }
+     );
+     if (!response.ok){
+        alert("Failed To send Data");
+        throw new Error("Failed TO Fetch Data");        
+     }
+     else{
+            Navigate("/problem")
+            console.log(name,idea,Department)
+     }
+  }
   return (
     <>
       <title>VENTURE STUDIO</title>
