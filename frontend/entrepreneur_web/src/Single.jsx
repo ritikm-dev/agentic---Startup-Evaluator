@@ -4,14 +4,36 @@ import viteLogo from '/vite.svg'
 import { useNavigate } from 'react-router-dom'
 
 function Single() {
+
   const Navigate = useNavigate();
   const [Department, Set_department] = useState("")
   const [name, Set_name] = useState("")
   const [idea, Set_idea] = useState("")
-  const handle_button = (e) =>{
+  const handle_button = async (e) =>{
     e.preventDefault();
-    Navigate("/problem")
-    console.log(name,idea,Department)
+    const data_send = {
+      "department" : Department,
+      "name" : name,
+      "one_line_idea" : idea
+    }
+    const response = await fetch(
+      "http://localhost:8000/singleform/",
+      {
+        method :"POST",
+        headers : {"Content-Type":"application/json"},
+        body : JSON.stringify(data_send)
+      }
+     );
+     if (!response.ok){
+        alert("Failed To send Data");
+        throw new Error("Failed TO Fetch Data");        
+     }
+     else{
+            const data = response.json()
+            console.log(data)
+            Navigate("/problem")
+            console.log(name,idea,Department)
+     }
   }
   return (
     <>
@@ -28,11 +50,11 @@ function Single() {
           </div>
           <div className='name-head'>
             <label > Department: </label>
-            <input type='text' placeholder='enter your name' className='name-input' onChange={(e)=>{Set_department(e.target.value)}} required />
+            <input type='text' placeholder='enter your department' className='name-input' onChange={(e)=>{Set_department(e.target.value)}} required />
           </div>
           <div className='name-head'>
             <label > One line idea: </label>
-            <input type='text' placeholder='enter your name' className='name-input' onChange={(e)=>{Set_idea(e.target.value)}} required />
+            <input type='text' placeholder='enter your one line idea' className='name-input' onChange={(e)=>{Set_idea(e.target.value)}} required />
           </div>
           <center> <button type='submit'>SUBMIT</button></center>
         </form>
